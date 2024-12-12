@@ -1,4 +1,4 @@
-namespace Tyuiu.BaldinAA.Sprint6.Task6.V14
+namespace Tyuiu.BaldinAA.Sprint6.Task6.V26
 {
     internal static class Program
     {
