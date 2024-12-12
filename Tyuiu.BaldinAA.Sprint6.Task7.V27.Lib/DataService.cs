@@ -9,9 +9,10 @@ namespace Tyuiu.BaldinAA.Sprint6.Task7.V27.Lib
             string[] input = File.ReadAllText(path).Split("\n");
 
             int count = input[0].Split(";").Length;
+            int length = input.Length;
             if (input[input.Length-1] == "")
             {
-                count--;
+                length--;
             }
             string[] nums;
             int[,] res = new int[input.Length, count];
