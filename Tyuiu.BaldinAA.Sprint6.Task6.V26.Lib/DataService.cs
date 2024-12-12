@@ -2,24 +2,22 @@
 
 namespace Tyuiu.BaldinAA.Sprint6.Task6.V26.Lib
 {
-    public class DataService: ISprint6Task6V26
+    public class DataService : ISprint6Task6V26
     {
-        
-
         public string CollectTextFromFile(string path)
         {
-            string[] words = File.ReadAllText(path).Split("\n");
-            string res = "";
-            int spaceindex = 0;
-            for (int i = 0; i < words.Length; i++)
-            {
-                if (words[i] != "")
+                string[] words = File.ReadAllText(path).Split("\n");
+                string res = "";
+                int spaceindex = 0;
+                for (int i = 0; i < words.Length; i++)
                 {
-                    spaceindex = words[i].LastIndexOf(" ");
-                    res += words[i].Substring(spaceindex);
+                    if (words[i] != "")
+                    {
+                        spaceindex = words[i].LastIndexOf(" ");
+                        res += words[i].Substring(spaceindex);
+                    }
                 }
-            }
-            return res.Trim(); 
+                return res.Trim();
         }
     }
 }
