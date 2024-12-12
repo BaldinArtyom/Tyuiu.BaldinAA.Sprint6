@@ -7,8 +7,13 @@ namespace Tyuiu.BaldinAA.Sprint6.Task7.V27.Lib
         public int[,] GetMatrix(string path)
         {
             string[] input = File.ReadAllText(path).Split("\n");
-            string[] nums;
+
             int count = input[0].Split(";").Length;
+            while (input[input.Length-1] == "")
+            {
+                count--;
+            }
+            string[] nums;
             int[,] res = new int[input.Length, count];
             for (int i = 0; i < res.GetLength(0); i++)
             {
