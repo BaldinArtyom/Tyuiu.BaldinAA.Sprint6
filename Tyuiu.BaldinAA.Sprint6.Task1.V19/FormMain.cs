@@ -7,7 +7,6 @@ namespace Tyuiu.BaldinAA.Sprint6.Task1.V19
         {
             InitializeComponent();
         }
-
         DataService ds = new DataService();
         private void buttonDone_Click(object sender, EventArgs e)
         {
@@ -47,6 +46,12 @@ namespace Tyuiu.BaldinAA.Sprint6.Task1.V19
         private void buttonHelp_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Таск 0 выполнил студент группы ИБКСб-23-2 Балдин Артём Александрович", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

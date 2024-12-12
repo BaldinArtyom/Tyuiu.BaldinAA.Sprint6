@@ -17,7 +17,7 @@ namespace Tyuiu.BaldinAA.Sprint6.Task1.V19.Lib
                     res[i] = Math.Round(Math.Cos(i) + (Math.Cos(i)) / (i + 2) - 3 * i, 3);
                 }
             }
-            return res; ;
+            return res; 
         }
     }
 }
