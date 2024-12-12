@@ -14,7 +14,7 @@ namespace Tyuiu.BaldinAA.Sprint6.Task1.V19.Lib
                 }
                 else
                 {
-                    res[i] = Math.Round(Math.Cos(i-stopValue) + (Math.Cos(i-stopValue)) / (i-stopValue + 2) - 3 * (i-stopValue), 3);
+                    res[i] = Math.Round(Math.Cos(i-stopValue) + (Math.Cos(i-stopValue)) / (i-stopValue + 2) - 3 * (i-stopValue), 2);
                 }
             }
             return res; 
