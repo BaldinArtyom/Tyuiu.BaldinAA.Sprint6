@@ -1,28 +1,28 @@
-﻿using System.IO;
-using tyuiu.cources.programming.interfaces.Sprint6;
+﻿using tyuiu.cources.programming.interfaces.Sprint6;
+
 namespace Tyuiu.BaldinAA.Sprint6.Task7.V27.Lib
 {
-    public class DataService : ISprint6Task7V27
+    public class DataService: ISprint6Task7V27
     {
-        public int[,] GetMatrix(int[,] matrix)
+        public int[,] GetMatrix(string path)
         {
-            string[] file = File.ReadAllText(path).Split('\n');
-            string[] cs = file[4].Split(';');
-            int[,] m = new int[file.Length, file[0].Split(';').Length];
-            for (int i = 0; i < file[0].Split(';').Length; i++)
+            string[] input = File.ReadAllText(path).Split("\n");
+            string[] nums;
+            int count = input[0].Split(";").Length;
+            int[,] res = new int[input.Length, count];
+            for (int i = 0; i < res.GetLength(0); i++)
             {
-
-                if (int.Parse(cs[i]) < 0) { cs[i] = "-1"; };
-            }
-            file[4] = string.Join(';', cs);
-            for (int i = 0; i < file[0].Split(';').Length; i++)
-            {
-                for (int j = 0; j < file.Length; j++)
+                if (input[i] != "")
                 {
-                    m[i, j] = int.Parse(file[i].Split(';')[j]);
+                    nums = input[i].Split(";");
+                    for (int j = 0; j < res.GetLength(1); j++)
+                    {
+                        res[i, j] = Convert.ToInt32(nums[j]);
+                        if (res[4, j] < 0) res[4, j] = -1;
+                    }
                 }
             }
-            return m; 
+            return res;
         }
     }
 }

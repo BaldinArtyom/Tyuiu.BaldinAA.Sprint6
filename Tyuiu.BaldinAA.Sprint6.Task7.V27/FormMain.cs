@@ -1,45 +1,99 @@
 using Tyuiu.BaldinAA.Sprint6.Task7.V27.Lib;
+
 namespace Tyuiu.BaldinAA.Sprint6.Task7.V27
 {
-    public partial class FormMain : Form
+    public partial class FormMain: Form
     {
         public FormMain()
         {
             InitializeComponent();
         }
-        private void buttonLoad_Click(object sender, EventArgs e)
+
+        static int rows;
+        static int columns;
+        static string openFilePath;
+
+        DataService ds = new DataService();
+
+        private int[,] getData(string path)
         {
-            DataService ds = new();
-            openFileDialogTask.ShowDialog();
-            string path = openFileDialogTask.FileName;
-            string[] s = File.ReadAllText(path).Split('\n');
-            string[,] input = new string[s.Length, s[0].Split(';').Length];
-
-            GridInput.ColumnCount = input.GetLength(0);
-            GridOutput.ColumnCount = input.GetLength(0);
-            GridInput.RowCount = input.GetLength(1);
-            GridOutput.RowCount = input.GetLength(1);
-
-            int[,] output = ds.GetMatrix(path);
-
-            for (int i = 0; i < input.GetLength(0); i++)
+            string[] input = File.ReadAllText(path).Trim().Split("\n");
+            string[] nums;
+            int count = input[0].Split(";").Length;
+            int[,] res = new int[input.Length, count];
+            for (int i = 0; i < res.GetLength(0); i++)
             {
-                for (int j = 0; j < input.GetLength(1); j++)
+                nums = input[i].Split(";");
+                for (int j = 0; j < res.GetLength(1); j++)
                 {
-                    GridInput.Rows[i].Cells[j].Value = s[j].Split(';')[i];
-                    GridOutput.Rows[i].Cells[j].Value = Convert.ToString(output[i, j]);
+                    res[i, j] = Convert.ToInt32(nums[j]);
                 }
             }
-
+            return res;
         }
 
+        private void buttonOpen_Click(object sender, EventArgs e)
+        {
+            openFileDialogTask.ShowDialog();
+            openFilePath = openFileDialogTask.FileName;
+            buttonDone.Enabled = true;
+            int[,] ints = getData(openFilePath);
+            rows = ints.GetLength(0);
+            columns = ints.GetLength(1);
+            dataGridViewInput.ColumnCount = columns;
+            dataGridViewInput.RowCount = rows;
+            dataGridViewOutput.ColumnCount = columns;
+            dataGridViewOutput.RowCount = rows;
 
+            for (int i = 0; i < columns; i++)
+            {
+                dataGridViewInput.Columns[i].Width = 25;
+                dataGridViewOutput.Columns[i].Width = 25;
+            }
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < columns; j++)
+                {
+                    dataGridViewInput.Rows[i].Cells[j].Value = ints[i, j];
+                }
+            }
+        }
+
+        private void buttonDone_Click(object sender, EventArgs e)
+        {
+            int[,] ints = ds.GetMatrix(openFilePath);
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < columns; j++)
+                {
+                    dataGridViewOutput.Rows[i].Cells[j].Value = ints[i, j];
+                }
+            }
+            buttonSave.Enabled = true;
+        }
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
+            saveFileDialogTask.FileName = "OutPutFileTask7V27.csv";
+            saveFileDialogTask.InitialDirectory = Directory.GetCurrentDirectory();
+            saveFileDialogTask.ShowDialog();
 
+            string path = saveFileDialogTask.FileName;
+            int rows = dataGridViewOutput.Rows.Count;
+            int columns = dataGridViewOutput.Columns.Count;
+            string str = "";
+            File.WriteAllText(path, str);
+
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < columns; j++)
+                {
+                    if (j != columns - 1) str += dataGridViewOutput.Rows[i].Cells[j].Value + ";";
+                    else str += dataGridViewOutput.Rows[i].Cells[j].Value;
+                }
+                File.AppendAllText(path, str + Environment.NewLine);
+                str = "";
+            }
         }
-
-        private void buttonHelp_Click(object sender, EventArgs e);
     }
 }

@@ -1,4 +1,5 @@
 using Tyuiu.BaldinAA.Sprint6.Task6.V26.Lib;
+
 namespace Tyuiu.BaldinAA.Sprint6.Task6.V26.Test
 {
     [TestClass]
@@ -7,10 +8,10 @@ namespace Tyuiu.BaldinAA.Sprint6.Task6.V26.Test
         [TestMethod]
         public void TestMethod1()
         {
-            string path = @"C:\Users\Artyom\source\repos\Tyuiu.BaldinAA.Sprint6\Tyuiu.BaldinAA.Sprint6.Task6.V26\bin\Debug\net8.0-windows\InPutFileTask6v26.txt";
-            FileInfo fileInfo = new FileInfo(path);
-            bool fileExists = fileInfo.Exists;
-            Assert.AreEqual(true, fileExists);
+            DataService ds = new DataService();
+            string path = Path.Combine("C:", "DataSprint6", "InPutDataFileTask6V26.txt");
+            string res = ds.CollectTextFromFile(path);
+            Console.WriteLine(res);
         }
     }
 }

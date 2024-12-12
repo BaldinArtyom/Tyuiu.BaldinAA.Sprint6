@@ -28,106 +28,91 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             panel1 = new Panel();
-            buttonHelp = new Button();
             buttonSave = new Button();
-            buttonLoad = new Button();
-            panel2 = new Panel();
-            GridInput = new DataGridView();
-            panel3 = new Panel();
-            GridOutput = new DataGridView();
+            buttonHelp = new Button();
+            buttonOpen = new Button();
+            buttonDone = new Button();
+            dataGridViewInput = new DataGridView();
+            dataGridViewOutput = new DataGridView();
             openFileDialogTask = new OpenFileDialog();
+            saveFileDialogTask = new SaveFileDialog();
             panel1.SuspendLayout();
-            panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)GridInput).BeginInit();
-            panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)GridOutput).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewInput).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewOutput).BeginInit();
             SuspendLayout();
             // 
             // panel1
             // 
-            panel1.Controls.Add(buttonHelp);
             panel1.Controls.Add(buttonSave);
-            panel1.Controls.Add(buttonLoad);
-            panel1.Dock = DockStyle.Top;
-            panel1.Location = new Point(0, 0);
+            panel1.Controls.Add(buttonHelp);
+            panel1.Controls.Add(buttonOpen);
+            panel1.Controls.Add(buttonDone);
+            panel1.Location = new Point(12, 12);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1089, 125);
-            panel1.TabIndex = 0;
-            // 
-            // buttonHelp
-            // 
-            buttonHelp.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            buttonHelp.Image = (Image)resources.GetObject("buttonHelp.Image");
-            buttonHelp.Location = new Point(983, 12);
-            buttonHelp.Name = "buttonHelp";
-            buttonHelp.Size = new Size(94, 94);
-            buttonHelp.TabIndex = 0;
-            buttonHelp.UseVisualStyleBackColor = true;
-            buttonHelp.Click += buttonHelp_Click;
+            panel1.Size = new Size(763, 67);
+            panel1.TabIndex = 5;
             // 
             // buttonSave
             // 
-            buttonSave.Image = (Image)resources.GetObject("buttonSave.Image");
-            buttonSave.Location = new Point(112, 12);
+            buttonSave.Enabled = false;
+            buttonSave.Location = new Point(176, 0);
             buttonSave.Name = "buttonSave";
-            buttonSave.Size = new Size(94, 94);
-            buttonSave.TabIndex = 0;
+            buttonSave.Size = new Size(89, 63);
+            buttonSave.TabIndex = 4;
+            buttonSave.Text = "Сохранить файл";
             buttonSave.UseVisualStyleBackColor = true;
             buttonSave.Click += buttonSave_Click;
             // 
-            // buttonLoad
+            // buttonHelp
             // 
-            buttonLoad.Image = (Image)resources.GetObject("buttonLoad.Image");
-            buttonLoad.Location = new Point(12, 12);
-            buttonLoad.Name = "buttonLoad";
-            buttonLoad.Size = new Size(94, 94);
-            buttonLoad.TabIndex = 0;
-            buttonLoad.UseVisualStyleBackColor = true;
-            buttonLoad.Click += buttonLoad_Click;
+            buttonHelp.Location = new Point(687, 0);
+            buttonHelp.Name = "buttonHelp";
+            buttonHelp.Size = new Size(76, 64);
+            buttonHelp.TabIndex = 3;
+            buttonHelp.Text = "Помощь";
+            buttonHelp.UseVisualStyleBackColor = true;
             // 
-            // panel2
+            // buttonOpen
             // 
-            panel2.Controls.Add(GridInput);
-            panel2.Dock = DockStyle.Left;
-            panel2.Location = new Point(0, 125);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(565, 591);
-            panel2.TabIndex = 0;
+            buttonOpen.Location = new Point(0, 0);
+            buttonOpen.Name = "buttonOpen";
+            buttonOpen.Size = new Size(79, 64);
+            buttonOpen.TabIndex = 0;
+            buttonOpen.Text = "Открыть файл";
+            buttonOpen.UseVisualStyleBackColor = true;
+            buttonOpen.Click += buttonOpen_Click;
             // 
-            // GridInput
+            // buttonDone
             // 
-            GridInput.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            GridInput.ColumnHeadersVisible = false;
-            GridInput.Dock = DockStyle.Fill;
-            GridInput.Location = new Point(0, 0);
-            GridInput.Name = "GridInput";
-            GridInput.RowHeadersVisible = false;
-            GridInput.RowHeadersWidth = 51;
-            GridInput.Size = new Size(565, 591);
-            GridInput.TabIndex = 0;
+            buttonDone.Enabled = false;
+            buttonDone.Location = new Point(85, 0);
+            buttonDone.Name = "buttonDone";
+            buttonDone.Size = new Size(85, 64);
+            buttonDone.TabIndex = 1;
+            buttonDone.Text = "Выполнить";
+            buttonDone.UseVisualStyleBackColor = true;
+            buttonDone.Click += buttonDone_Click;
             // 
-            // panel3
+            // dataGridViewInput
             // 
-            panel3.Controls.Add(GridOutput);
-            panel3.Dock = DockStyle.Fill;
-            panel3.Location = new Point(565, 125);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(524, 591);
-            panel3.TabIndex = 0;
+            dataGridViewInput.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewInput.ColumnHeadersVisible = false;
+            dataGridViewInput.Location = new Point(14, 96);
+            dataGridViewInput.Name = "dataGridViewInput";
+            dataGridViewInput.RowHeadersVisible = false;
+            dataGridViewInput.Size = new Size(354, 342);
+            dataGridViewInput.TabIndex = 6;
             // 
-            // GridOutput
+            // dataGridViewOutput
             // 
-            GridOutput.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            GridOutput.ColumnHeadersVisible = false;
-            GridOutput.Dock = DockStyle.Fill;
-            GridOutput.Location = new Point(0, 0);
-            GridOutput.Name = "GridOutput";
-            GridOutput.RowHeadersVisible = false;
-            GridOutput.RowHeadersWidth = 51;
-            GridOutput.Size = new Size(524, 591);
-            GridOutput.TabIndex = 0;
+            dataGridViewOutput.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewOutput.ColumnHeadersVisible = false;
+            dataGridViewOutput.Location = new Point(381, 93);
+            dataGridViewOutput.Name = "dataGridViewOutput";
+            dataGridViewOutput.RowHeadersVisible = false;
+            dataGridViewOutput.Size = new Size(394, 345);
+            dataGridViewOutput.TabIndex = 7;
             // 
             // openFileDialogTask
             // 
@@ -135,48 +120,30 @@
             // 
             // FormMain
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1089, 716);
-            Controls.Add(panel3);
-            Controls.Add(panel2);
+            ClientSize = new Size(800, 450);
+            Controls.Add(dataGridViewOutput);
+            Controls.Add(dataGridViewInput);
             Controls.Add(panel1);
             Name = "FormMain";
             Text = "Form1";
             panel1.ResumeLayout(false);
-            panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)GridInput).EndInit();
-            panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)GridOutput).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewInput).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewOutput).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
         private Panel panel1;
-        private Panel panel2;
-        private Panel panel3;
-        private Button buttonHelp;
         private Button buttonSave;
-        private Button buttonLoad;
-        private DataGridView GridInput;
-        private DataGridView GridOutput;
+        private Button buttonHelp;
+        private Button buttonOpen;
+        private Button buttonDone;
+        private DataGridView dataGridViewInput;
+        private DataGridView dataGridViewOutput;
         private OpenFileDialog openFileDialogTask;
-
-        #region Windows Form Designer generated code
-
-        /// <summary>
-        ///  Required method for Designer support - do not modify
-        ///  the contents of this method with the code editor.
-        /// </summary>
-        private void InitializeComponent()
-        {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
-        }
-
-        #endregion
+        private SaveFileDialog saveFileDialogTask;
     }
 }
