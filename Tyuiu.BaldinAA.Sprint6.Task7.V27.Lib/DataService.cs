@@ -9,7 +9,7 @@ namespace Tyuiu.BaldinAA.Sprint6.Task7.V27.Lib
             string[] input = File.ReadAllText(path).Split("\n");
 
             int count = input[0].Split(";").Length;
-            while (input[input.Length-1] == "")
+            if (input[input.Length-1] == "")
             {
                 count--;
             }
