@@ -16,7 +16,7 @@ namespace Tyuiu.BaldinAA.Sprint6.Task6.V14
         {
             InitializeComponent();
         }
-        private void buttonClose_LAV_Click(object sender, EventArgs e)
+        private void buttonClose_SME_Click(object sender, EventArgs e)
         {
             this.Close();
         }

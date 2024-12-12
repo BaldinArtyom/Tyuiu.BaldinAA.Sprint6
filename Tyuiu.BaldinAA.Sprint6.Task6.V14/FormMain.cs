@@ -35,4 +35,5 @@ namespace Tyuiu.BaldinAA.Sprint6.Task6.V14
             FormAbout formabout = new FormAbout();
             formabout.ShowDialog();
         }
+    }
 }
