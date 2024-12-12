@@ -29,124 +29,143 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            buttonOpen = new Button();
             openFileDialogTask = new OpenFileDialog();
-            toolTip1 = new ToolTip(components);
-            buttonOpenFile = new Button();
-            buttonResult = new Button();
-            textBoxInPutData = new TextBox();
-            textBoxStart = new TextBox();
-            groupBoxPutData = new GroupBox();
-            groupBoxOutPutData = new GroupBox();
-            textBoxResult = new TextBox();
-            groupBoxPutData.SuspendLayout();
-            groupBoxOutPutData.SuspendLayout();
+            toolTip = new ToolTip(components);
+            buttonHelp = new Button();
+            buttonDone = new Button();
+            labelTask = new Label();
+            textBoxTask = new TextBox();
+            labelInput = new Label();
+            labelOutput = new Label();
+            textBoxInput = new TextBox();
+            textBoxOutput = new TextBox();
             SuspendLayout();
             // 
-            // buttonOpenFile
+            // buttonOpen
             // 
-            buttonOpenFile.Location = new Point(12, 12);
-            buttonOpenFile.Name = "buttonOpenFile";
-            buttonOpenFile.Size = new Size(170, 56);
-            buttonOpenFile.TabIndex = 0;
-            buttonOpenFile.Text = "открыть файл";
-            buttonOpenFile.UseVisualStyleBackColor = true;
-            buttonOpenFile.Click += buttonOpenFile_Click;
+            buttonOpen.Location = new Point(12, 12);
+            buttonOpen.Name = "buttonOpen";
+            buttonOpen.Size = new Size(71, 55);
+            buttonOpen.TabIndex = 0;
+            buttonOpen.Text = "Открыть файл";
+            buttonOpen.UseVisualStyleBackColor = true;
+            buttonOpen.Click += buttonOpen_Click;
             // 
-            // buttonResult
+            // openFileDialogTask
             // 
-            buttonResult.Location = new Point(188, 12);
-            buttonResult.Name = "buttonResult";
-            buttonResult.Size = new Size(170, 56);
-            buttonResult.TabIndex = 1;
-            buttonResult.Text = "Выполнить";
-            buttonResult.UseVisualStyleBackColor = true;
-            buttonResult.Click += buttonResult_Click;
+            openFileDialogTask.FileName = "openFileDialog1";
             // 
-            // textBoxInPutData
+            // buttonHelp
             // 
-            textBoxInPutData.Location = new Point(12, 74);
-            textBoxInPutData.Multiline = true;
-            textBoxInPutData.Name = "textBoxInPutData";
-            textBoxInPutData.ReadOnly = true;
-            textBoxInPutData.Size = new Size(776, 71);
-            textBoxInPutData.TabIndex = 3;
-            textBoxInPutData.Text = "Дан файл";
+            buttonHelp.Location = new Point(713, 12);
+            buttonHelp.Name = "buttonHelp";
+            buttonHelp.Size = new Size(75, 55);
+            buttonHelp.TabIndex = 1;
+            buttonHelp.Text = "?";
+            buttonHelp.UseVisualStyleBackColor = true;
+            buttonHelp.Click += buttonHelp_Click;
             // 
-            // textBoxStart
+            // buttonDone
             // 
-            textBoxStart.Location = new Point(6, 22);
-            textBoxStart.Multiline = true;
-            textBoxStart.Name = "textBoxStart";
-            textBoxStart.ReadOnly = true;
-            textBoxStart.ScrollBars = ScrollBars.Vertical;
-            textBoxStart.Size = new Size(311, 265);
-            textBoxStart.TabIndex = 4;
+            buttonDone.Enabled = false;
+            buttonDone.Location = new Point(89, 12);
+            buttonDone.Name = "buttonDone";
+            buttonDone.Size = new Size(78, 55);
+            buttonDone.TabIndex = 2;
+            buttonDone.Text = "Выполнить";
+            buttonDone.UseVisualStyleBackColor = true;
+            buttonDone.Click += buttonDone_Click;
             // 
-            // groupBoxPutData
+            // labelTask
             // 
-            groupBoxPutData.Controls.Add(textBoxStart);
-            groupBoxPutData.Location = new Point(12, 151);
-            groupBoxPutData.Name = "groupBoxPutData";
-            groupBoxPutData.Size = new Size(323, 287);
-            groupBoxPutData.TabIndex = 7;
-            groupBoxPutData.TabStop = false;
-            groupBoxPutData.Text = "Ввод";
-            groupBoxPutData.Enter += groupBoxOutPutData_Enter;
+            labelTask.AutoSize = true;
+            labelTask.Location = new Point(11, 70);
+            labelTask.Name = "labelTask";
+            labelTask.Size = new Size(56, 15);
+            labelTask.TabIndex = 3;
+            labelTask.Text = "Условие:";
             // 
-            // groupBoxOutPutData
+            // textBoxTask
             // 
-            groupBoxOutPutData.Controls.Add(textBoxResult);
-            groupBoxOutPutData.Location = new Point(341, 151);
-            groupBoxOutPutData.Name = "groupBoxOutPutData";
-            groupBoxOutPutData.Size = new Size(447, 287);
-            groupBoxOutPutData.TabIndex = 8;
-            groupBoxOutPutData.TabStop = false;
-            groupBoxOutPutData.Text = "Вывод";
-            groupBoxOutPutData.Enter += groupBoxOUPutData_Enter;
+            textBoxTask.BorderStyle = BorderStyle.None;
+            textBoxTask.Location = new Point(14, 90);
+            textBoxTask.Multiline = true;
+            textBoxTask.Name = "textBoxTask";
+            textBoxTask.ReadOnly = true;
+            textBoxTask.Size = new Size(744, 22);
+            textBoxTask.TabIndex = 4;
+            textBoxTask.Text = "Дан файл. Загрузить файл в TextBoxIn через OpenFileDialog. Найти и вывести в результирующую строку все слова, содержащие s.";
             // 
-            // textBoxResult
+            // labelInput
             // 
-            textBoxResult.Location = new Point(6, 22);
-            textBoxResult.Multiline = true;
-            textBoxResult.Name = "textBoxResult";
-            textBoxResult.ReadOnly = true;
-            textBoxResult.Size = new Size(435, 265);
-            textBoxResult.TabIndex = 5;
-            textBoxResult.TextChanged += textBox4_TextChanged;
+            labelInput.AutoSize = true;
+            labelInput.Location = new Point(14, 122);
+            labelInput.Name = "labelInput";
+            labelInput.Size = new Size(36, 15);
+            labelInput.TabIndex = 5;
+            labelInput.Text = "Ввод:";
+            // 
+            // labelOutput
+            // 
+            labelOutput.AutoSize = true;
+            labelOutput.Location = new Point(407, 122);
+            labelOutput.Name = "labelOutput";
+            labelOutput.Size = new Size(45, 15);
+            labelOutput.TabIndex = 6;
+            labelOutput.Text = "Вывод:";
+            // 
+            // textBoxInput
+            // 
+            textBoxInput.Location = new Point(20, 147);
+            textBoxInput.Multiline = true;
+            textBoxInput.Name = "textBoxInput";
+            textBoxInput.ReadOnly = true;
+            textBoxInput.Size = new Size(373, 247);
+            textBoxInput.TabIndex = 7;
+            // 
+            // textBoxOutput
+            // 
+            textBoxOutput.Location = new Point(407, 147);
+            textBoxOutput.Multiline = true;
+            textBoxOutput.Name = "textBoxOutput";
+            textBoxOutput.ReadOnly = true;
+            textBoxOutput.Size = new Size(373, 247);
+            textBoxOutput.TabIndex = 8;
             // 
             // FormMain
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(groupBoxOutPutData);
-            Controls.Add(groupBoxPutData);
-            Controls.Add(textBoxInPutData);
-            Controls.Add(buttonResult);
-            Controls.Add(buttonOpenFile);
+            Controls.Add(textBoxOutput);
+            Controls.Add(textBoxInput);
+            Controls.Add(labelOutput);
+            Controls.Add(labelInput);
+            Controls.Add(textBoxTask);
+            Controls.Add(labelTask);
+            Controls.Add(buttonDone);
+            Controls.Add(buttonHelp);
+            Controls.Add(buttonOpen);
             Name = "FormMain";
-            Text = "Form1";
-            Load += FormMain_Load;
-            groupBoxPutData.ResumeLayout(false);
-            groupBoxPutData.PerformLayout();
-            groupBoxOutPutData.ResumeLayout(false);
-            groupBoxOutPutData.PerformLayout();
+            Text = "Спринт 6 | Таск 6 | Вариант 23 | Баймухаметова М.Д.";
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
+        private Button buttonOpen;
         private OpenFileDialog openFileDialogTask;
-        private ToolTip toolTip1;
-        private Button buttonOpenFile;
-        private Button buttonResult;
-        private TextBox textBoxInPutData;
-        private TextBox textBoxStart;
-        private GroupBox groupBoxPutData;
-        private GroupBox groupBoxOutPutData;
-        private TextBox textBoxResult;
-    }
+        private ToolTip toolTip;
+        private Button buttonHelp;
+        private Button buttonDone;
+        private Label labelTask;
+        private TextBox textBoxTask;
+        private Label labelInput;
+        private Label labelOutput;
+        private TextBox textBoxInput;
+        private TextBox textBoxOutput;
 
         #region Windows Form Designer generated code
 

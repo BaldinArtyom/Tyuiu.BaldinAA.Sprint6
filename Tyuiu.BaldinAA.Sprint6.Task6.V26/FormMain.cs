@@ -1,4 +1,4 @@
-using Tyuiu.BaldinAA.Sprint6.Task6.V26.Lib;
+﻿using Tyuiu.BaldinAA.Sprint6.Task6.V26.Lib;
 namespace Tyuiu.BaldinAA.Sprint6.Task6.V26
 {
     public partial class FormMain : Form
@@ -7,43 +7,25 @@ namespace Tyuiu.BaldinAA.Sprint6.Task6.V26
         {
             InitializeComponent();
         }
-        DataService ds = new DataService();
         string openFilePath;
-        private void FormMain_Load(object sender, EventArgs e)
-        {
+        DataService ds = new DataService();
 
-        }
-
-        private void textBox4_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void buttonOpenFile_Click(object sender, EventArgs e)
+        private void buttonOpen_Click(object sender, EventArgs e)
         {
             openFileDialogTask.ShowDialog();
             openFilePath = openFileDialogTask.FileName;
-            textBoxStart.Text = File.ReadAllText(openFilePath);
-            textBoxInPutData.Text = groupBoxOutPutData.Text + " " + openFileDialogTask.FileName;
-            buttonResult.Enabled = true;
-
-
+            textBoxInput.Text = File.ReadAllText(openFilePath);
+            buttonDone.Enabled = true;
         }
 
-        private void groupBoxOutPutData_Enter(object sender, EventArgs e)
+        private void buttonHelp_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show("Òàñê 5, âûïîëíèëà ñòóäåíòêà ãðóïïû ÈÁÊÑá-24-1 Áàéìóõàìåòîâà Ìàäèíà Äàìèðîâíà", "Ñîîáùåíèå", MessageBoxButtons.OK);
         }
 
-        private void groupBoxOUPutData_Enter(object sender, EventArgs e)
+        private void buttonDone_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void buttonResult_Click(object sender, EventArgs e)
-        {
-            string str = "";
-            textBoxResult.Text = ds.CollectTextFromFile(openFilePath);
+            textBoxOutput.Text = ds.CollectTextFromFile(openFilePath);
         }
     }
 }
