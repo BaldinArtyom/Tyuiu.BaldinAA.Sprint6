@@ -15,7 +15,7 @@ namespace Tyuiu.BaldinAA.Sprint6.Task7.V27.Lib
                 length--;
             }
             string[] nums;
-            int[,] res = new int[input.Length, count];
+            int[,] res = new int[length, count];
             for (int i = 0; i < res.GetLength(0); i++)
             {
                 if (input[i] != "")
