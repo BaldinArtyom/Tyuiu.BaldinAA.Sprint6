@@ -6,7 +6,7 @@ namespace Tyuiu.BaldinAA.Sprint6.Task6.V26.Lib
     {
         
 
-        public string CollectTextFromFile( string path)
+        public string CollectTextFromFile(string path)
         {
             string[] words = File.ReadAllText(path).Split("\n");
             string res = "";
